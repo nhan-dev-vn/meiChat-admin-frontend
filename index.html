@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="mei_chat.ico" type="image/x-icon">
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/css/toastr.min.css">
+
+    <script src="vendor/js/jquery.min.js"></script>
+    <script src="vendor/js/toastr.min.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
+    <script src="vendor/js/angular.min.js"></script>
+    <script src="vendor/js/angular-route.min.js"></script>
+    <script src="vendor/js/ng-file-upload.min.js"></script>
+    <script src="vendor/js/socket.io.js"></script>
+
+    <script src="app.js"></script>
+    <script src="app.config.js"></script>
+    <script src="services/api.service.js"></script>
+    <script src="pages/home/home.js"></script>
+    <script src="pages/login/login.js"></script>
+    <script src="pages/message/message.js"></script>
+    
+    <title>Mei Chat</title>
+    <base href="/">
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            background: #007bff;
+            background: linear-gradient(to right, #0062E6, #33AEFF);  
+        }
+    </style>
+</head>
+<body ng-app="meiChat" ng-view>
+</body>
+</html>

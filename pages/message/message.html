@@ -1,0 +1,129 @@
+<link rel="stylesheet" href="../../pages/message/message.css">
+
+<div class="messaging">
+    <div class="inbox_msg">
+        <div class="inbox_people">
+            <div class="headind_srch">
+                <div class="recent_heading">
+                    <i class="glyphicon glyphicon-comment" style="font-size: 30px">
+                        <span class="badge new" ng-if="message.new>0">{{message.new}}</span>
+                    </i>
+                </div>
+                <div class="my_account">
+                    <span>{{message.user.username}}</span>
+                </div>
+                <div class="log_out">
+                    <span class="glyphicon glyphicon-log-out" ng-click="message.logout()"></span>
+                </div>
+                <div class="add_admin">
+                    <span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#addAdminModal" ng-if="message.user.role==1"></span>
+                    <div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header" style="text-align: center">
+                                    <h4 class="modal-title" id="adAdminModalLabel">Thêm tài khoản quản trị viên</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <center>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Tên đăng nhập"
+                                                    ng-model="message.username" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Mật khẩu"
+                                                    ng-model="message.password" required>
+                                            </div>
+                                        </center>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                        ng-click="message.addAdmin()">Thêm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="srch_bar">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm ..."
+                            ng-model="message.inbox_srch">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="inbox_chat">
+                Chưa có cuộc trò chuyện nào!
+            </div>
+            <div class="inbox_chat"
+                ng-repeat="conver in message.listConver | orderBy : '-Messages[Messages.length-1].sendAt' | filter : {name: message.inbox_srch} track by $index"
+                ng-click="message.selectConver($index)">
+                <div class="chat_list " ng-class="conver.selected">
+                    <div class="chat_people">
+                        <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
+                        </div>
+                        <div class="chat_ib">
+                            <h5 ng-style="conver.newMess?{'font-weight': 'bolder'}:{}">{{conver.name}} <span
+                                    class="chat_date">{{conver.Messages[conver.Messages.length-1].sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
+                            </h5>
+                            <p>{{conver.Messages[conver.Messages.length-1].content}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mesgs" ngf-drop="message.sendImgFile($files)" class="drop-box" ngf-drag-over-class="'dragover'"
+            ngf-multiple="true">
+            <div class="msg_history">
+                <div class="msg" ng-repeat="msg in message.curConver.Messages">
+                    <div class="incoming_msg" ng-if="message.user.username != msg.username">
+                        <div class="incoming_msg_img">
+                            <img src="https://ptetutorials.com/images/user-profile.png" alt="customer">
+                        </div>
+                        <div class="received_msg">
+                            <div class="received_withd_msg">
+                                <p class="msg_text" ng-if="msg.type=='text'">{{msg.content}}</p>
+                                <p class="msg_file" ng-if="msg.type=='file'">
+                                    <a href="{{msg.path+'/download'}}">
+                                        <i class="glyphicon glyphicon-circle-arrow-down"></i>
+                                        {{msg.content}}
+                                    </a>
+                                </p>
+                                <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'">
+                                <span class="time_date">{{msg.username}} lúc
+                                    {{msg.sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="outgoing_msg" ng-if="message.user.username == msg.username">
+                        <div class="sent_msg">
+                            <p class="msg_text" ng-if="msg.type=='text'">{{msg.content}}</p>
+                            <p class="sent_msg_file" ng-if="msg.type=='file'"><a href="{{msg.path+'/download'}}">
+                                    <i class="glyphicon glyphicon-circle-arrow-down"></i>
+                                    {{msg.content}}
+                                </a>
+                            </p>
+                            <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'">
+                            <span class="time_date">{{msg.sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="type_msg" ng-click="message.seenMessage()">
+                <div class="input_msg_write">
+                    <input type="text" class="write_msg" placeholder="Type a message" ng-model="message.msg_typing" />
+                    <button class="msg_send_btn" type="button">
+                        <span class="glyphicon glyphicon-paperclip" aria-hidden="true"
+                            ngf-select="message.sendImgFile($files)" multiple="multiple"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.login {
+    width: 25%;
+    position: relative;
+}
+form {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    top: 100px;
+    position: absolute;
+    width: 100%;
+}
+.glyphicon-user {
+    font-size: 50px;
+    color:#286090;
+}

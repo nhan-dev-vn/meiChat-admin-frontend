@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="../../pages/home/home.css">
+<div class="container-fluid">
+    <div class="row header">
+            <h3 class="namesite">Mei Chat</h3>
+            <button type="submit" class="btn btn-primary loginbtn" ng-click="home.login()">Đăng nhập</button>
+    </div>
+    <div class="row home">
+        <div class="col-sm-6">
+            <form>
+                <center>
+                    <h3>Đăng ký</h3>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Tên đăng nhập" ng-model="home.username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Mật khẩu" ng-model="home.password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" ng-click="home.register()">OK</button>
+                </center>
+            </form>
+        </div>
+        <div class="col-sm-6">
+            <center class="info">
+                <h3>Tạo hộp chat miễn phí</h3>
+                <p>Mei Chat giúp bạn tạo hộp chat tích hợp vào website dễ dàng.</p>
+                <p>Mei Chat là ứng dụng chat với tốc độ tin nhắn nhanh ổn định với số lượng người dùng lớn.</p>
+            </center>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+.home {
+    padding: 1% 20%;
+}
+.header {
+    background: white;
+    padding: 1% 20%;
+}
+.namesite {
+    display: inline-block;
+    margin: 0px;
+    background: #337ab7;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.loginbtn {
+    float: right;
+}
+form {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 50px;
+}
+
+.info {
+    color: white;
+}
