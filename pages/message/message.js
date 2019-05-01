@@ -8,6 +8,8 @@ function message(apiService, $timeout, config, $location) {
     this.user = JSON.parse(window.localStorage.user)
     var token = window.localStorage.token
     var typing = false
+    socket.emit('join_room', this.user.owner)
+
     apiService.getListConversation(token, {
         username: self.user.username,
         owner: self.user.owner
@@ -96,6 +98,9 @@ function message(apiService, $timeout, config, $location) {
             })
         }
     }
+    socket.on('new_room', (data)=>{
+        socket.emit('join_room', data)
+    })
     socket.on('sendMessage', (data) => {
         self.listConver.forEach((conver, i) => {
             if (conver.id == data.idConversation) {

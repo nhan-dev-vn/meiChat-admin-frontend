@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,27 +17,37 @@
     <script src="vendor/js/ng-file-upload.min.js"></script>
     <script src="vendor/js/socket.io.js"></script>
 
+    
     <script src="app.js"></script>
     <script src="app.config.js"></script>
     <script src="services/api.service.js"></script>
     <script src="pages/home/home.js"></script>
     <script src="pages/login/login.js"></script>
     <script src="pages/message/message.js"></script>
-    
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="mei-chat-customer.js"></script>
+
     <title>Mei Chat</title>
     <base href="/">
 
     <style>
-        html, body {
+        html,
+        body, body > div {
             width: 100%;
             height: 100%;
         }
         body {
             background: #007bff;
-            background: linear-gradient(to right, #0062E6, #33AEFF);  
+            background: linear-gradient(to right, #0062E6, #33AEFF);
         }
     </style>
 </head>
-<body ng-app="meiChat" ng-view>
+
+<body ng-app="meiChat">
+    <div ng-view></div>
+    <mei-chat-customer></mei-chat-customer>
 </body>
+
 </html>

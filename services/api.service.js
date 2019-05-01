@@ -17,7 +17,7 @@ function apiService(config, $http, Upload) {
             data: data
         }).then(function successCallback(response) {
             if (response.data.code != 200) {
-                console.error(response.data.reason)
+                toastr.error(response.data.content)
                 cb();
             } else {
                 cb(response.data.content)
@@ -37,7 +37,7 @@ function apiService(config, $http, Upload) {
             data: data
         }).then(function successCallback(response) {
             if (response.data.code != 200) {
-                console.error(response.data.reason)
+                toastr.error(response.data.content)
                 cb();
             } else {
                 cb(response.data.content)

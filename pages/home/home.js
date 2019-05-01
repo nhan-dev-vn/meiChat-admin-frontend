@@ -12,8 +12,7 @@ function home(apiService, $location) {
             role: 1,
             owner: self.username
         }, (res)=> {
-            console.log(res)
-            toastr.success('Đăng ký thành công!')
+            if(res) toastr.success(res)
         })
     }
 }
