@@ -63,6 +63,7 @@
             </div>
             <div class="inbox_chat"
                 ng-repeat="conver in message.listConver | orderBy : '-Messages[Messages.length-1].sendAt' | filter : {name: message.inbox_srch} track by $index"
+                ng-show="conver.Messages.length>0"
                 ng-click="message.selectConver($index)">
                 <div class="chat_list " ng-class="conver.selected">
                     <div class="chat_people">
@@ -81,7 +82,7 @@
         <div class="mesgs" ngf-drop="message.sendImgFile($files)" class="drop-box" ngf-drag-over-class="'dragover'"
             ngf-multiple="true">
             <div class="msg_history">
-                <div class="msg" ng-repeat="msg in message.curConver.Messages" ng-if="msg.Messages.length>0">
+                <div class="msg" ng-repeat="msg in message.curConver.Messages">
                     <div class="incoming_msg" ng-if="message.user.username != msg.username">
                         <div class="incoming_msg_img">
                             <img src="https://ptetutorials.com/images/user-profile.png" alt="customer">
