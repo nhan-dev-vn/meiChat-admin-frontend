@@ -23,8 +23,10 @@ function home(apiService, $location) {
             role: 1,
             owner: self.username
         }, (res)=> {
-            self.code = '<script src="'+ res +'"></script>'
-            self.angularModule = '<div ng-app="meiChatCustomer"><mei-chat-customer></mei-chat-customer></div>'
+            if(!$.isEmptyObject(res)) {
+                self.code = '<script src="'+ res +'"></script>'
+                self.angularModule = '<div ng-app="meiChatCustomer"><mei-chat-customer></mei-chat-customer></div>'
+            }
         })
     }
 }

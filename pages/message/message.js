@@ -100,6 +100,7 @@ function message(apiService, $timeout, config, $location) {
     socket.on('new_room', (data)=>{
         data.Messages = []
         self.listConver.push(data)
+        if(self.listConver.length==1) self.curConver = data
         socket.emit('join_room', data.id)
     })
     socket.on('sendMessage', (data) => {
