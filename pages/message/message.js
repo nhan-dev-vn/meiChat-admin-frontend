@@ -2,7 +2,7 @@ angular.module('meiChat').controller('message', message)
 
 function message(apiService, $timeout, config, $location) {
     var self = this
-    var socket = io(config.baseUrl)
+    var socket = io(config.baseUrl, {transports: ['websocket']})
     // this.user = apiService.user
     // var token = apiService.token
     this.user = JSON.parse(window.localStorage.user)
