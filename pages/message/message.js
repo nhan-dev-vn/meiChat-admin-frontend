@@ -98,7 +98,9 @@ function message(apiService, $timeout, config, $location) {
         }
     }
     socket.on('new_room', (data)=>{
-        socket.emit('join_room', data)
+        data.Messages = []
+        self.listConver.push(data)
+        socket.emit('join_room', data.id)
     })
     socket.on('sendMessage', (data) => {
         self.listConver.forEach((conver, i) => {

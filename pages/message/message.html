@@ -81,7 +81,7 @@
         <div class="mesgs" ngf-drop="message.sendImgFile($files)" class="drop-box" ngf-drag-over-class="'dragover'"
             ngf-multiple="true">
             <div class="msg_history">
-                <div class="msg" ng-repeat="msg in message.curConver.Messages">
+                <div class="msg" ng-repeat="msg in message.curConver.Messages" ng-if="msg.Messages.length>0">
                     <div class="incoming_msg" ng-if="message.user.username != msg.username">
                         <div class="incoming_msg_img">
                             <img src="https://ptetutorials.com/images/user-profile.png" alt="customer">
