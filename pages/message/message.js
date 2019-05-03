@@ -14,10 +14,9 @@ function message(apiService, $timeout, config, $location) {
         username: self.user.username,
         owner: self.user.owner
     }, (res) => {
-        window.res = res
         self.listConver = res.list
         self.curConver = self.listConver[0]
-        self.listConver[0].selected = 'active_chat'
+        if(self.curConver) self.listConver[0].selected = 'active_chat'
         self.new = res.numNewMess
         self.listConver.forEach(conver => {
             socket.emit('join_room', conver.id)

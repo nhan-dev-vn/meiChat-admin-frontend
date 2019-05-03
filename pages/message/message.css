@@ -147,7 +147,10 @@ img {
     margin: 0;
     padding: 18px 16px 10px;
 }
-
+.init {
+    text-align: center;
+    font-weight: bold;
+}
 .inbox_chat {
     overflow-y: overlay;
     cursor: pointer;

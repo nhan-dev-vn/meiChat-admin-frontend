@@ -1,4 +1,4 @@
 angular.module('meiChat').constant('config', {
-    baseUrl: 'http://192.168.1.4:3000',
+    baseUrl: 'http://192.168.23.109:3000',
     
 });
