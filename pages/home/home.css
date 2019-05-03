@@ -27,18 +27,15 @@ form {
 .info {
     color: white;
 }
-.dependences {
-    color: black;
-    font-family: consolas;
-    width: 100%;
-    height: 200px;
-}
+
 .steps {
     text-align: left;
     color: white;
 }
 .code {
     width: 100%;
-    height: 50px;
     color: black;
+    font-family: consolas;
+    background: #eee;
+    padding: 15px;
 }

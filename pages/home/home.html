@@ -30,11 +30,18 @@
             </center>
             <div class="steps">
                 <p>Bước 1: Đăng ký tài khoản quản trị viên</p>
-                <p>Bước 2: Tích một đoạn mã sau đây vào phần header của trang web</p>
-                <textarea class="dependences" disabled ng-model="home.dependences"></textarea>
+                <p>Bước 2: Tích hợp đoạn mã sau đây vào phần header của trang web</p>
+                <div class="code">
+                    <div ng-repeat="depend in home.dependences track by $index">
+                        {{depend}}
+                    </div>
+                </div>
                 <p>Bước 3: Tích hợp đoạn mã nguồn sau vào phần body của trang web</p>
                 <p>(đoạn mã nguồn sẽ được cung cấp sau khi đăng ký tài khoản thành công)</p>
-                <textarea class="code" type="text" disabled ng-if="home.code" ng-model="home.code"></textarea>
+                <div class="code" ng-if="home.code">
+                    <div>{{home.code}}</div>
+                    <div>{{home.angularModule}}</div>
+                </div>
             </div>
         </div>
     </div>

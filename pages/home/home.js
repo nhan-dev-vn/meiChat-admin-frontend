@@ -2,16 +2,17 @@ angular.module('meiChat').controller('home', home)
 
 function home(apiService, $location) {
     let self = this;
-    let jquery = '<!--Jquery--> <script src="http://45.76.186.146:3000/js/jquery.min.js"></script>'
-    let jqueryUiCss = '\n<!--JqueryUi css--> <link rel="stylesheet" href="http://45.76.186.146:3000/css/jquery-ui.css">'
-    let jqueryUiJs = '\n<!--JqueryUi js--> <script src="http://45.76.186.146:3000/js/jquery-ui.css"></script>'
-    let bootstrapCss = '\n<!--Bootstrap css--> <link rel="stylesheet" href="http://45.76.186.146:3000/css/bootstrap.min.css">'
-    let bootstrapJs = '\n<!--Bootstrap js--> <script src="http://45.76.186.146:3000/js/bootstrap.min.js"></script>'
-    let socketio = '\n<!--Socketio--> <script src="http://45.76.186.146:3000/js/socket.io.js"></script>'
-    let angularJs = '\n<!--Angularjs--> <script src="http://45.76.186.146:3000/js/angular.min.js"></script>'
-    let angularRoute = '\n<!--Angular-route--> <script src="http://45.76.186.146:3000/js/angular-route.min.js"></script>'
-    let ngFileUpload = '\n<!--Ng-file-upload--> <script src="http://45.76.186.146:3000/js/ng-file-upload.min.js"></script>'
-    self.dependences = jquery + bootstrapCss + bootstrapJs + socketio + angularJs + angularRoute + ngFileUpload
+    this.dependences = [
+        '<!--Jquery--> <script src="http://45.76.186.146:3000/js/jquery.min.js"></script>',
+        '<!--Bootstrap css--> <link rel="stylesheet" href="http://45.76.186.146:3000/css/bootstrap.min.css">',
+        '<!--Bootstrap js--> <script src="http://45.76.186.146:3000/js/bootstrap.min.js"></script>',
+        '<!--Socketio--> <script src="http://45.76.186.146:3000/js/socket.io.js"></script>',
+        '<!--Angularjs--> <script src="http://45.76.186.146:3000/js/angular.min.js"></script>',
+        '<!--Angular-route--> <script src="http://45.76.186.146:3000/js/angular-route.min.js"></script>',
+        '<!--Ng-file-upload--> <script src="http://45.76.186.146:3000/js/ng-file-upload.min.js"></script>'
+    ]
+    // this.jqueryUiCss = '<!--JqueryUi css--> <link rel="stylesheet" href="http://45.76.186.146:3000/css/jquery-ui.css">'
+    // this.jqueryUiJs = '<!--JqueryUi js--> <script src="http://45.76.186.146:3000/js/jquery-ui.css"></script>'
     self.login = ()=> {
         $location.path('/login')
     }
@@ -22,9 +23,8 @@ function home(apiService, $location) {
             role: 1,
             owner: self.username
         }, (res)=> {
-            let code = '<script src="'+ res +'"></script>'
-            let angularModule = '\n<mei-chat-customer></mei-chat-customer>'
-            self.code = code + angularModule
+            self.code = '<script src="'+ res +'"></script>'
+            self.angularModule = '<div ng-app="meiChatCustomer"><mei-chat-customer></mei-chat-customer></div>'
         })
     }
 }
