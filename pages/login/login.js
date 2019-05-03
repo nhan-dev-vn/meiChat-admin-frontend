@@ -17,4 +17,7 @@ function login(apiService, $location) {
         })
         
     }
+    this.home = ()=> {
+        $location.path('/')
+    }
 }

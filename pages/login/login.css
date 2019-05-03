@@ -14,3 +14,8 @@ form {
     font-size: 50px;
     color:#286090;
 }
+.title {
+    background: white;
+    color: #286090;
+    font-family: 'Courier New', Courier, monospace;
+}
