@@ -5,6 +5,7 @@ function message(apiService, $timeout, config, $location) {
     var socket = io(config.baseUrl, {transports: ['websocket']})
     // this.user = apiService.user
     // var token = apiService.token
+    this.news = []
     this.user = JSON.parse(window.localStorage.user)
     var token = window.localStorage.token
     var typing = false
@@ -17,7 +18,7 @@ function message(apiService, $timeout, config, $location) {
         self.listConver = res.list
         self.curConver = self.listConver[0]
         if(self.curConver) self.listConver[0].selected = 'active_chat'
-        self.new = res.numNewMess
+        self.news = res.news
         self.listConver.forEach(conver => {
             socket.emit('join_room', conver.id)
         })
@@ -92,7 +93,10 @@ function message(apiService, $timeout, config, $location) {
             }, (res) => {
                 if (res) {
                     self.listConver[idx].newMess = false
-                    self.new--
+                    self.news.forEach((n, i)=>{
+                        if(n.idConversation==self.listConver[idx].id)
+                            self.news.splice(i, 1)
+                    })
                 }
             })
         }
@@ -113,7 +117,13 @@ function message(apiService, $timeout, config, $location) {
                 if (data.idUser == self.user.id || (data.idConversation == self.curConver.id && $('.write_msg').is(':focus'))) {
                     seenMessage(i)
                 } else {
-                    self.new++
+                    if(!self.listConver[i].newMess)
+                    self.news.push({
+                        idConversation: data.idConversation,
+                        idUser: data.idUser,
+                        username: data.username,
+                        nameConversation: data.nameConversation
+                    })
                     self.listConver[i].newMess = true
                 }
             }
