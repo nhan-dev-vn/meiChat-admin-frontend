@@ -11,7 +11,7 @@ function home(apiService, $location) {
     let angularJs = '\n<!--Angularjs--> <script src="http://45.76.186.146:3000/js/angular.min.js"></script>'
     let angularRoute = '\n<!--Angular-route--> <script src="http://45.76.186.146:3000/js/angular-route.min.js"></script>'
     let ngFileUpload = '\n<!--Ng-file-upload--> <script src="http://45.76.186.146:3000/js/ng-file-upload.min.js"></script>'
-    self.dependences = jquery + jqueryUiCss + jqueryUiJs + bootstrapCss + bootstrapJs + socketio + angularJs + angularRoute + ngFileUpload
+    self.dependences = jquery + bootstrapCss + bootstrapJs + socketio + angularJs + angularRoute + ngFileUpload
     self.login = ()=> {
         $location.path('/login')
     }
