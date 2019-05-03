@@ -3,13 +3,15 @@ angular.module('meiChat').controller('home', home)
 function home(apiService, $location) {
     let self = this;
     let jquery = '<!--Jquery--> <script src="http://45.76.186.146:3000/js/jquery.min.js"></script>'
-    let bootstrapcss = '\n<!--Bootstrap css--> <link rel="stylesheet" href="http://45.76.186.146:3000/css/bootstrap.min.css">'
-    let bootstrapjs = '\n<!--Bootstrap js--> <script src="http://45.76.186.146:3000/js/bootstrap.min.js"></script>'
+    let jqueryUiCss = '\n<!--JqueryUi css--> <link rel="stylesheet" href="http://45.76.186.146:3000/css/jquery-ui.css">'
+    let jqueryUiJs = '\n<!--JqueryUi js--> <script src="http://45.76.186.146:3000/js/jquery-ui.css"></script>'
+    let bootstrapCss = '\n<!--Bootstrap css--> <link rel="stylesheet" href="http://45.76.186.146:3000/css/bootstrap.min.css">'
+    let bootstrapJs = '\n<!--Bootstrap js--> <script src="http://45.76.186.146:3000/js/bootstrap.min.js"></script>'
     let socketio = '\n<!--Socketio--> <script src="http://45.76.186.146:3000/js/socket.io.js"></script>'
-    let angularjs = '\n<!--Angularjs--> <script src="http://45.76.186.146:3000/js/angular.min.js"></script>'
+    let angularJs = '\n<!--Angularjs--> <script src="http://45.76.186.146:3000/js/angular.min.js"></script>'
     let angularRoute = '\n<!--Angular-route--> <script src="http://45.76.186.146:3000/js/angular-route.min.js"></script>'
     let ngFileUpload = '\n<!--Ng-file-upload--> <script src="http://45.76.186.146:3000/js/ng-file-upload.min.js"></script>'
-    self.dependences = jquery + bootstrapcss + bootstrapjs + socketio + angularjs + angularRoute + ngFileUpload
+    self.dependences = jquery + jqueryUiCss + jqueryUiJs + bootstrapCss + bootstrapJs + socketio + angularJs + angularRoute + ngFileUpload
     self.login = ()=> {
         $location.path('/login')
     }
