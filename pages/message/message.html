@@ -108,7 +108,7 @@
                                 </a>
                             </p>
                             <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'" ng-click="msg.open=true">
-                            <view-img open="{{msg.open}}" src="{{msg.path}}"></view-img>
+                            <view-img ng-if="msg.open" open="{{msg.open}}" src="{{msg.path}}"></view-img>
                             <span class="time_date">{{msg.sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
                         </div>
                     </div>
