@@ -91,9 +91,8 @@
                             <div class="received_withd_msg">
                                 <p class="msg_text" ng-if="msg.type=='text'" ng-bind-html="msg.content"></p>
                                 <p class="msg_file" ng-if="msg.type=='file'">
-                                    <a href="{{msg.path+'/download'}}">
-                                        <i class="glyphicon glyphicon-circle-arrow-down"></i>
-                                        <p class="msg_file_name" ng-bind-html="msg.content"></p>
+                                    <a href="{{msg.path+'/download'}}"
+                                        ng-bind-html="message.downloadicon + msg.content">
                                     </a>
                                 </p>
                                 <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'">
@@ -106,10 +105,7 @@
                         <div class="sent_msg">
                             <p class="msg_text" ng-if="msg.type=='text'" ng-bind-html="msg.content"></p>
                             <p class="msg_file sent_msg_file" ng-if="msg.type=='file'">
-                                <a href="{{msg.path+'/download'}}" 
-                                ng-bind-html="message.downloadicon + msg.content">
-                                    <!-- <i class="glyphicon glyphicon-circle-arrow-down"></i>
-                                    <p class="msg_file_name" ng-bind-html="msg.content"></p> -->
+                                <a href="{{msg.path+'/download'}}" ng-bind-html="message.downloadicon + msg.content">
                                 </a>
                             </p>
                             <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'">
@@ -120,7 +116,8 @@
             </div>
             <div class="type_msg" ng-click="message.seenMessage()">
                 <div class="input_msg_write">
-                    <textarea type="text" class="write_msg" placeholder="Type a message" ng-model="message.msg_typing"></textarea>
+                    <textarea type="text" class="write_msg" placeholder="Type a message"
+                        ng-model="message.msg_typing"></textarea>
                     <button class="msg_send_btn" type="button">
                         <span class="glyphicon glyphicon-paperclip" aria-hidden="true"
                             ngf-select="message.sendImgFile($files)" multiple="multiple"></span>
