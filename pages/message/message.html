@@ -105,7 +105,7 @@
                     <div class="outgoing_msg" ng-if="message.user.username == msg.username">
                         <div class="sent_msg">
                             <p class="msg_text" ng-if="msg.type=='text'" ng-bind-html="msg.content"></p>
-                            <p class="msg_file" ng-if="msg.type=='file'">
+                            <p class="msg_file sent_msg_file" ng-if="msg.type=='file'">
                                 <a href="{{msg.path+'/download'}}" 
                                 ng-bind-html="message.downloadicon + msg.content">
                                     <!-- <i class="glyphicon glyphicon-circle-arrow-down"></i>
