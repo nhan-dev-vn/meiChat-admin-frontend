@@ -1,5 +1,6 @@
 const REGISTER = '/register'
 const LOGIN = '/login'
+const ADD_ADMIN = '/admin/new'
 const GET_LIST_CONVERSATION = '/conversation/list'
 const GET_CONVERSATION = '/conversation'
 const POST_MESSAGE = '/message/new'
@@ -53,6 +54,9 @@ function apiService(config, $http, Upload) {
     }
     this.login = (data, cb) => {
         doPost(LOGIN, data, cb)
+    }
+    this.addAdmin = (data, cb) => {
+        doPost(ADD_ADMIN, data, cb)
     }
     this.getListConversation = function(token, data, cb) {
         doPostToken(GET_LIST_CONVERSATION, token, data, cb)

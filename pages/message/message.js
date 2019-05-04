@@ -83,7 +83,7 @@ function message(apiService, $timeout, config, $location) {
         $location.path('/login')
     }
     this.addAdmin = () => {
-        apiService.register({
+        apiService.addAdmin({
             username: self.username,
             password: self.password,
             owner: self.user.username,
