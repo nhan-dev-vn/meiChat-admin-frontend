@@ -146,8 +146,10 @@ function message(apiService, $timeout, config, $location) {
             event.preventDefault();
             if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta) {
                 $('.img #viewimage').height('+=10')
+                $('.img #viewimage').width('auto')
             } else {
-                $('.img #viewimage').height('+-10')
+                $('.img #viewimage').height('-=10')
+                $('.img #viewimage').width('auto')
             }
         }
     });
