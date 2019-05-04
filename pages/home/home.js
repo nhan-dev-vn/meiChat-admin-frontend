@@ -9,7 +9,8 @@ function home(apiService, $location) {
         '<!--Socketio--> <script src="http://45.76.186.146:3000/js/socket.io.js"></script>',
         '<!--Angularjs--> <script src="http://45.76.186.146:3000/js/angular.min.js"></script>',
         '<!--Angular-route--> <script src="http://45.76.186.146:3000/js/angular-route.min.js"></script>',
-        '<!--Ng-file-upload--> <script src="http://45.76.186.146:3000/js/ng-file-upload.min.js"></script>'
+        '<!--Ng-file-upload--> <script src="http://45.76.186.146:3000/js/ng-file-upload.min.js"></script>',
+        '<!--Ng-sanitize--> <script src="http://45.76.186.146:3000/js/angular-sanitize.min.js"></script>'
     ]
     // this.jqueryUiCss = '<!--JqueryUi css--> <link rel="stylesheet" href="http://45.76.186.146:3000/css/jquery-ui.css">'
     // this.jqueryUiJs = '<!--JqueryUi js--> <script src="http://45.76.186.146:3000/js/jquery-ui.css"></script>'
