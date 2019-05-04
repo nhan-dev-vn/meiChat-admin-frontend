@@ -36,8 +36,10 @@ function message(apiService, $timeout, config, $location) {
     }
     $('.write_msg').keypress((e) => {
         if (e.which == 13 && !e.shiftKey) {
+            let content = $('.write_msg').val().trim()
+            if(content)
             apiService.sendMessage(token, {
-                content: $('.write_msg').val().trim(),
+                content: content,
                 type: 'text',
                 idUser: self.user.id,
                 username: self.user.username,
@@ -48,6 +50,10 @@ function message(apiService, $timeout, config, $location) {
                 e.preventDefault()
                 $('.write_msg').val('')
             })
+            else {
+                e.preventDefault()
+                $('.write_msg').val('')
+            }
         }
     })
     this.seenMessage = () => {
