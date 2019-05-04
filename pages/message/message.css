@@ -278,7 +278,15 @@ img {
 #viewimg {
     padding: 0px;
 }
-
+#viewimg .options {
+    height: 8%;
+    width: 100%;
+}
+#viewimg .img {
+    height: 92%;
+    width: 100%;
+    padding: 15px;
+}
 #viewimg img {
     max-width: 100%;
     max-height: 100%;
