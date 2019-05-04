@@ -5,6 +5,7 @@ function message(apiService, $timeout, config, $location) {
     var socket = io(config.baseUrl, {transports: ['websocket']})
     // this.user = apiService.user
     // var token = apiService.token
+    this.downloadicon = '<i class="glyphicon glyphicon-circle-arrow-down"></i>'
     this.news = []
     this.user = JSON.parse(window.localStorage.user)
     var token = window.localStorage.token

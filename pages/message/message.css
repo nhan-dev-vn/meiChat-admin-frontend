@@ -159,11 +159,11 @@ img {
 .active_chat {
     background: #c2c2c2;
 }
-.mgs_text {
+.msg_text {
     word-wrap: break-word;
     white-space: pre-line;
 }
-.mgs_file_name {
+.msg_file {
     word-wrap: break-word;
     white-space: pre-line;
 }
