@@ -146,7 +146,7 @@ function message(apiService, $timeout, config, $location) {
             event.preventDefault();
             $('.img #viewimage').css('max-width', 'unset')
             $('.img #viewimage').css('max-height', 'unset')
-            if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta) {
+            if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta > 0) {
                 $('.img #viewimage').height('+=10')
                 $('.img #viewimage').width('auto')
             } else {
