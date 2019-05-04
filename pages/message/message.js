@@ -144,6 +144,8 @@ function message(apiService, $timeout, config, $location) {
     $('#viewimage').bind('mousewheel DOMMouseScroll', function (event) {
         if (event.ctrlKey == true) {
             event.preventDefault();
+            $('.img #viewimage').css('max-width', 'unset')
+            $('.img #viewimage').css('max-height', 'unset')
             if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta) {
                 $('.img #viewimage').height('+=10')
                 $('.img #viewimage').width('auto')
