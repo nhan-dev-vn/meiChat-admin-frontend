@@ -2,7 +2,7 @@ angular.module('meiChat').controller('message', message)
 
 function message(apiService, $timeout, config, $location) {
     var self = this
-    var socket = io(config.baseUrl, {transports: ['websocket']})
+    var socket = io(config.baseUrl, { transports: ['websocket'] })
     // this.user = apiService.user
     // var token = apiService.token
     this.downloadicon = '<i class="glyphicon glyphicon-circle-arrow-down"></i>'
@@ -18,7 +18,7 @@ function message(apiService, $timeout, config, $location) {
     }, (res) => {
         self.listConver = res.list
         self.curConver = self.listConver[0]
-        if(self.curConver) self.listConver[0].selected = 'active_chat'
+        if (self.curConver) self.listConver[0].selected = 'active_chat'
         self.news = res.news
         self.listConver.forEach(conver => {
             socket.emit('join_room', conver.id)
@@ -37,19 +37,19 @@ function message(apiService, $timeout, config, $location) {
     $('.write_msg').keypress((e) => {
         if (e.which == 13 && !e.shiftKey) {
             let content = $('.write_msg').val().trim()
-            if(content)
-            apiService.sendMessage(token, {
-                content: content,
-                type: 'text',
-                idUser: self.user.id,
-                username: self.user.username,
-                idConversation: self.curConver.id,
-                nameConversation: self.curConver.name,
-                sendAt: new Date()
-            }, (res) => {
-                e.preventDefault()
-                $('.write_msg').val('')
-            })
+            if (content)
+                apiService.sendMessage(token, {
+                    content: content,
+                    type: 'text',
+                    idUser: self.user.id,
+                    username: self.user.username,
+                    idConversation: self.curConver.id,
+                    nameConversation: self.curConver.name,
+                    sendAt: new Date()
+                }, (res) => {
+                    e.preventDefault()
+                    $('.write_msg').val('')
+                })
             else {
                 e.preventDefault()
                 $('.write_msg').val('')
@@ -100,18 +100,18 @@ function message(apiService, $timeout, config, $location) {
             }, (res) => {
                 if (res) {
                     self.listConver[idx].newMess = false
-                    self.news.forEach((n, i)=>{
-                        if(n.idConversation==self.listConver[idx].id)
+                    self.news.forEach((n, i) => {
+                        if (n.idConversation == self.listConver[idx].id)
                             self.news.splice(i, 1)
                     })
                 }
             })
         }
     }
-    socket.on('new_room', (data)=>{
+    socket.on('new_room', (data) => {
         data.Messages = []
         self.listConver.push(data)
-        if(self.listConver.length==1) self.curConver = data
+        if (self.listConver.length == 1) self.curConver = data
         socket.emit('join_room', data.id)
     })
     socket.on('sendMessage', (data) => {
@@ -124,13 +124,13 @@ function message(apiService, $timeout, config, $location) {
                 if (data.idUser == self.user.id || (data.idConversation == self.curConver.id && $('.write_msg').is(':focus'))) {
                     seenMessage(i)
                 } else {
-                    if(!self.listConver[i].newMess)
-                    self.news.push({
-                        idConversation: data.idConversation,
-                        idUser: data.idUser,
-                        username: data.username,
-                        nameConversation: data.nameConversation
-                    })
+                    if (!self.listConver[i].newMess)
+                        self.news.push({
+                            idConversation: data.idConversation,
+                            idUser: data.idUser,
+                            username: data.username,
+                            nameConversation: data.nameConversation
+                        })
                     self.listConver[i].newMess = true
                 }
             }
@@ -141,14 +141,14 @@ function message(apiService, $timeout, config, $location) {
             $('.msg_history').scrollTop($('.msg_history')[0].scrollHeight);
         }, timeout)
     }
-    $('#viewimage').bind('mousewheel DOMMouseScroll', function(event){
-        if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-            // scroll up
-            $('.img #viewimage').height('+=10')
-        }
-        else {
-            // scroll down
-            $('.img #viewimage').height('+-10')
+    $('#viewimage').bind('mousewheel DOMMouseScroll', function (event) {
+        if (event.ctrlKey == true) {
+            event.preventDefault();
+            if (event.originalEvent.detail > 0 || event.originalEvent.wheelDelta) {
+                $('.img #viewimage').height('+=10')
+            } else {
+                $('.img #viewimage').height('+-10')
+            }
         }
     });
 }
