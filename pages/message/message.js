@@ -141,4 +141,14 @@ function message(apiService, $timeout, config, $location) {
             $('.msg_history').scrollTop($('.msg_history')[0].scrollHeight);
         }, timeout)
     }
+    $('#viewimage').bind('mousewheel DOMMouseScroll', function(event){
+        if (event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
+            // scroll up
+            $('.img #viewimage').height('+=10')
+        }
+        else {
+            // scroll down
+            $('.img #viewimage').height('+-10')
+        }
+    });
 }
