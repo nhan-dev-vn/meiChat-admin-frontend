@@ -1,4 +1,4 @@
-var app = angular.module('meiChat', ['ngRoute', 'ngFileUpload', 'ngSanitize'])
+var app = angular.module('meiChat', ['ngSanitize', 'ngRoute', 'ngFileUpload'])
 app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
