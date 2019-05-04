@@ -95,7 +95,8 @@
                                         ng-bind-html="message.downloadicon + msg.content">
                                     </a>
                                 </p>
-                                <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'">
+                                <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'" data-toggle="modal"
+                                data-target="#viewimg" ng-click="message.viewimgSrc=msg.path">
                                 <span class="time_date">{{msg.username}} lúc
                                     {{msg.sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
                             </div>
@@ -130,8 +131,8 @@
 </div>
 <div class="modal fade" id="viewimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="options">
-        <span class="glyphicon glyphicon-save option"></span>
-        <span class="glyphicon glyphicon-remove option"></span>
+        <span class="glyphicon glyphicon-save option" href="{{message.viewimgSrc+'/download'}}"></span>
+        <span class="glyphicon glyphicon-remove option" data-dismiss="modal"></span>
     </div>
     <div class="img">
         <img ng-src="{{message.viewimgSrc}}" alt="not found">
