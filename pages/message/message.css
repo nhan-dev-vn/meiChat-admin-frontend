@@ -163,7 +163,10 @@ img {
     word-wrap: break-word;
     white-space: pre-line;
 }
-
+.mgs_file_name {
+    word-wrap: break-word;
+    white-space: pre-line;
+}
 .incoming_msg_img {
     display: inline-block;
     width: 6%;

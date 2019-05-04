@@ -16,7 +16,8 @@
                     <span class="glyphicon glyphicon-log-out" ng-click="message.logout()"></span>
                 </div>
                 <div class="add_admin">
-                    <span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#addAdminModal" ng-if="message.user.role==1"></span>
+                    <span class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#addAdminModal"
+                        ng-if="message.user.role==1"></span>
                     <div class="modal fade" id="addAdminModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -63,8 +64,7 @@
             </div>
             <div class="inbox_chat"
                 ng-repeat="conver in message.listConver | orderBy : '-Messages[Messages.length-1].sendAt' | filter : {name: message.inbox_srch} track by $index"
-                ng-show="conver.Messages.length>0"
-                ng-click="message.selectConver($index)">
+                ng-show="conver.Messages.length>0" ng-click="message.selectConver($index)">
                 <div class="chat_list " ng-class="conver.selected">
                     <div class="chat_people">
                         <div class="chat_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil">
@@ -93,7 +93,7 @@
                                 <p class="msg_file" ng-if="msg.type=='file'">
                                     <a href="{{msg.path+'/download'}}">
                                         <i class="glyphicon glyphicon-circle-arrow-down"></i>
-                                        {{msg.content}}
+                                        <p class="msg_file_name" ng-bind-html="msg.content"></p>
                                     </a>
                                 </p>
                                 <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'">
@@ -105,9 +105,10 @@
                     <div class="outgoing_msg" ng-if="message.user.username == msg.username">
                         <div class="sent_msg">
                             <p class="msg_text" ng-if="msg.type=='text'" ng-bind-html="msg.content"></p>
-                            <p class="sent_msg_file" ng-if="msg.type=='file'"><a href="{{msg.path+'/download'}}">
+                            <p class="sent_msg_file" ng-if="msg.type=='file'">
+                                <a href="{{msg.path+'/download'}}">
                                     <i class="glyphicon glyphicon-circle-arrow-down"></i>
-                                    {{msg.content}}
+                                    <p class="msg_file_name" ng-bind-html="msg.content"></p>
                                 </a>
                             </p>
                             <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'">
