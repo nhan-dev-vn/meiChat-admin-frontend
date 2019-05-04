@@ -96,8 +96,7 @@
                                     </a>
                                 </p>
                                 <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'">
-                                <span class="time_date">{{msg.username}} lúc
-                                    {{msg.sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
+                                <span class="time_date">{{msg.username}} lúc {{msg.sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
                             </div>
                         </div>
                     </div>
