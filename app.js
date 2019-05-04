@@ -16,4 +16,13 @@ app.config(function ($routeProvider) {
         .otherwise({
             redirectTo: '/'
         })
-});
+})
+app.component('viewImg', {
+    templateUrl: 'components/view_img/view_img.html',
+    controller: 'viewImg',
+    controllerAs: 'vm',
+    bindings: {
+        src: '=',
+        open: '='
+    }
+})

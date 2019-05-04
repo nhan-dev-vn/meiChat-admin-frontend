@@ -107,7 +107,8 @@
                                 <a href="{{msg.path+'/download'}}" ng-bind-html="message.downloadicon + msg.content">
                                 </a>
                             </p>
-                            <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'">
+                            <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'" ng-click="msg.open=true">
+                            <view-img open="{{msg.open}}" src="{{msg.path}}"></view-img>
                             <span class="time_date">{{msg.sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
                         </div>
                     </div>
