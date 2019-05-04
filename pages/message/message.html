@@ -96,7 +96,8 @@
                                     </a>
                                 </p>
                                 <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'">
-                                <span class="time_date">{{msg.username}} lúc {{msg.sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
+                                <span class="time_date">{{msg.username}} lúc
+                                    {{msg.sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
                             </div>
                         </div>
                     </div>
@@ -107,8 +108,8 @@
                                 <a href="{{msg.path+'/download'}}" ng-bind-html="message.downloadicon + msg.content">
                                 </a>
                             </p>
-                            <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'" ng-click="msg.open=true">
-                            <view-img ng-if="msg.open" open="{{msg.open}}" src="{{msg.path}}"></view-img>
+                            <img ng-src="{{msg.paththumb}}" alt="not found" ng-if="msg.type=='img'" data-toggle="modal"
+                                data-target="#viewimg" ng-click="message.viewimgSrc=msg.path">
                             <span class="time_date">{{msg.sendAt | date: "MM/dd/yyyy '|' h:mma"}}</span>
                         </div>
                     </div>
@@ -123,6 +124,22 @@
                             ngf-select="message.sendImgFile($files)" multiple="multiple"></span>
                     </button>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="viewimg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: center">
+                <h4 class="modal-title" id="viewimgLabel">Thêm tài khoản quản trị viên</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <img ng-src="{{message.viewimgSrc}}" alt="not found">
             </div>
         </div>
     </div>
