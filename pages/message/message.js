@@ -34,9 +34,9 @@ function message(apiService, $timeout, config, $location) {
         msg_history_scroll(500)
     }
     $('.write_msg').keypress((e) => {
-        if (e.which == 13) {
+        if (e.which == 13 && !e.shiftKey) {
             apiService.sendMessage(token, {
-                content: $('.write_msg').val(),
+                content: $('.write_msg').val().trim(),
                 type: 'text',
                 idUser: self.user.id,
                 username: self.user.username,

@@ -159,6 +159,10 @@ img {
 .active_chat {
     background: #c2c2c2;
 }
+.mgs_text {
+    word-wrap: break-word;
+    white-space: pre-line;
+}
 
 .incoming_msg_img {
     display: inline-block;
