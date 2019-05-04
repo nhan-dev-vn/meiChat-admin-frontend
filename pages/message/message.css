@@ -288,6 +288,7 @@ img {
 #viewimg .option {
     font-size: 30px;
     color: white;
+    cursor: pointer;
 }
 #viewimg .img {
     height: 92%;
