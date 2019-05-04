@@ -277,15 +277,24 @@ img {
 }
 #viewimg {
     padding: 0px;
+    background: rgba(0, 0, 0, .9);
 }
 #viewimg .options {
     height: 8%;
     width: 100%;
+    text-align: right;
+    padding: 15px;
+}
+#viewimg .option {
+    font-size: 30px;
+    color: white;
 }
 #viewimg .img {
     height: 92%;
     width: 100%;
+    text-align: center;
     padding: 15px;
+    overflow: auto;
 }
 #viewimg img {
     max-width: 100%;
