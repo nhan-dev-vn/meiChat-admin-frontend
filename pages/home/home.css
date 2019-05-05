@@ -1,6 +1,9 @@
 .home {
     padding: 1% 10%;
 }
+.homelogo {
+    height: 90%;
+}
 .header {
     background: white;
     padding: 1% 20%;
