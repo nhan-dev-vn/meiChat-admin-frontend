@@ -1,16 +1,17 @@
 .login {
     width: 25%;
     position: relative;
+    text-align: center;
 }
 .loginlogo {
-    height: 40px;
+    height: 90px;
+    margin: 20px;
 }
 form {
     background: white;
     border-radius: 10px;
     padding: 20px;
     top: 100px;
-    position: absolute;
     width: 100%;
 }
 .glyphicon-user {
