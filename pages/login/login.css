@@ -5,7 +5,6 @@
 }
 .loginlogo {
     height: 90px;
-    margin: 20px;
 }
 form {
     background: white;
@@ -13,6 +12,7 @@ form {
     padding: 20px;
     top: 100px;
     width: 100%;
+    margin-top: 50px;
 }
 .glyphicon-user {
     font-size: 50px;
